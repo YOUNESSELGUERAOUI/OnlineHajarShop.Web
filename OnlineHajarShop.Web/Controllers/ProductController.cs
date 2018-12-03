@@ -29,7 +29,7 @@ namespace OnlineHajarShop.Web.Controllers
         }
 
         [HttpPost("AddNewProduct")]
-        public IActionResult AddNewProduct(Product product)
+        public IActionResult AddNewProduct([FromBody]Product product)
         {
             if (product != null)
             {
@@ -40,7 +40,7 @@ namespace OnlineHajarShop.Web.Controllers
         }
 
         [HttpPost("AddNewProductList")]
-        public IActionResult AddNewProductList(IEnumerable<Product> productList)
+        public IActionResult AddNewProductList([FromBody]IEnumerable<Product> productList)
         {
             if (productList?.Any() != null)
             {
@@ -51,7 +51,7 @@ namespace OnlineHajarShop.Web.Controllers
         }
 
         [HttpPut("ModifyProduct")]
-        public IActionResult ModifyProduct(Product product)
+        public IActionResult ModifyProduct([FromBody]Product product)
         {
             Product existanceProduct = Products.FirstOrDefault(x => x.ProductId == product.ProductId);
 
